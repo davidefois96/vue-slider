@@ -16,9 +16,9 @@
   
   <div class="slider position-relative " id="app">
 
-    <div class="imgWrapper h-75 position-relative"  @mouseenter="activeAutoScroll= false" @mouseleave="activeAutoScroll= true"> 
+    <div class="imgWrapper h-75 position-relative"  @mouseenter="activeAutoScroll= false" @mouseleave="activeAutoScroll= true" @dblclick=" towardAutoScroll=!towardAutoScroll, activeAutoScroll=true"> 
 
-      <div class="position-absolute p-3 ">
+      <div class="position-absolute p-3">
 
         <h1>
           {{images[cont].nome}}
