@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==' crossorigin='anonymous'/><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==' crossorigin='anonymous'/>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body class="d-flex flex-column justify-content-around  align-items-center">
+
+  
+  
+  <div class="slider position-relative " id="app">
+
+    <div class="imgWrapper h-75 position-relative"  @mouseenter="activeAutoScroll= false" @mouseleave="activeAutoScroll= true"> 
+
+      <div class="position-absolute p-3 ">
+
+        <h1>
+          {{images[cont].nome}}
+        </h1>
+
+        <p>
+          {{images[cont].descrizione}}
+        </p>
+
+      </div>
+      
+
+      <img :src="images[cont].url" :alt="images[cont].nome">
+
+     
+    </div>
+
+    <div @mouseenter="activeAutoScroll= false" @click="scrollImg(false)" class="btnArrow left position-absolute ">&#8592;</div>
+    <div @mouseenter="activeAutoScroll= false" @click="scrollImg(true)" class="btnArrow right position-absolute ">&#8594;</div>
+
+    <div class="thumbs h-25" @mouseenter="activeAutoScroll= false" @mouseleave="activeAutoScroll= true">
+
+      <img v-for="(image,index) in images" :src="images[index].url" :alt="images[index].nome" class="hovered" @click="cont=index">
+
+    </div>
+
+  </div>
+  
+  
+  <script src="JS/script.js"></script>
+</body>
+</html>
